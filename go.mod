@@ -128,4 +128,4 @@ require (
 	gvisor.dev/gvisor v0.0.0-20250523182742-eede7a881b20 // indirect
 )
 
-replace github.com/go-gost/x => github.com/RunVid/gost-x v0.0.0-20260811124208-7998db483106
+replace github.com/go-gost/x => github.com/RunVid/gost-x v0.0.0-20260811192036-d2746fe46b50
