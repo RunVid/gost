@@ -1,5 +1,5 @@
 package main
 
 var (
-	version = "3.2.6-pine.1"
+	version = "3.2.6-pine.2"
 )
