@@ -14,6 +14,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v5
+      with:
+        go-version: '1.25.x'
+        cache: true
+    - name: Require tagged Pine dependency
+      run: bash .github/scripts/check-pine-dependency.sh
     - name: Prepare
       id: prepare
       run: |
