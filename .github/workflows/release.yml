@@ -24,15 +24,7 @@ jobs:
           go-version: '1.25'
           cache: true
       - name: Require tagged Pine dependency
-        if: contains(github.ref_name, '-pine.')
-        shell: bash
-        run: |
-          set -euo pipefail
-          dependency="$(go list -m -f '{{with .Replace}}{{.Path}} {{.Version}}{{end}}' github.com/go-gost/x)"
-          if [[ ! "$dependency" =~ ^github\.com/RunVid/gost-x\ v[0-9]+\.[0-9]+\.[0-9]+-pine\.[0-9]+$ ]]; then
-            echo 'Pine releases require a tagged RunVid/gost-x dependency; review commit pins cannot ship.' >&2
-            exit 1
-          fi
+        run: bash .github/scripts/check-pine-dependency.sh
       - name: Install UPX
         uses: crazy-max/ghaction-upx@v3
         with:

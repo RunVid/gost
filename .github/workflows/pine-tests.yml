@@ -19,6 +19,10 @@ jobs:
         with:
           go-version: '1.25.x'
           cache: true
+      - name: Release dependency gate
+        run: |
+          bash .github/scripts/check-pine-dependency-test.sh
+          bash .github/scripts/check-pine-dependency.sh
       - name: Vet and test
         run: |
           go vet ./...
